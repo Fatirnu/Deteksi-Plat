@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Image Processing</title>
+
+    <!-- Tambahkan style untuk membatasi ukuran gambar dan mengatur secara horizontal -->
+    <style>
+        img {
+            max-width: 500px;
+            max-height: 500px;
+            width: auto;
+            height: auto;
+            display: inline-block;
+            margin-right: 10px; /* Jarak antar gambar, sesuaikan dengan preferensi kamu */
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Processing</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".png, .jpg, .jpeg, .gif" required>
+        <button type="submit">Upload and Process</button>
+    </form>
+
+    <h2>Deteksi Plat:</h2>
+    <img src="{{ url_for('uploaded_file', filename='processed_image_show.jpg') }}" alt="Processed Image (Show)">
+
+    <h2>Dekteksi Karakter:</h2>
+    <img src="{{ url_for('uploaded_file', filename='processed_image_bw.jpg') }}" alt="Processed Image (BW)">
+
+    <h2>Hasil</h2>
+    <img src="{{ url_for('uploaded_file', filename='terdeteksi_image_show.jpg') }}" alt="Terdeteksi">
+</body>
+</html>
